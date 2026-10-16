@@ -45,12 +45,22 @@ header nav[aria-expanded='true'] {
   }
 
   header nav {
-    display: flex;
-    justify-content: space-between;
-    gap: 0 32px;
-    max-width: 1264px;
-    padding: 0 32px;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  max-width: 1264px;
+  padding: 0 32px;
+}
+
+header nav .nav-brand {
+  flex: 0 0 auto;
+}
+
+header nav .nav-sections {
+  flex: 0 0 auto;
+  margin-left: auto;
+}
 }
 
 header nav p {
