@@ -11,6 +11,24 @@
  */
 
 :root {
+
+  :root {
+  --color-primary: #B49A72;
+  --color-bronze: #8B7355;
+  --color-beige: #E8DDCB;
+  --color-ivory: #F7F4EE;
+  --color-text: #302A24;
+
+  --color-border: #D8CCBA;
+  --color-white: #FFFFFF;
+
+  --radius-card: 12px;
+  --radius-button: 6px;
+
+  --section-spacing: 64px;
+  --content-width: 1200px;
+}
+
   /* colors */
   --background-color: white;
   --light-color: #f8f8f8;
