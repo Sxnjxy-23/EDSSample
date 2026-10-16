@@ -262,7 +262,7 @@ header nav .nav-sections .nav-drop > button[aria-expanded='false'] + ul {
   display: block;
   position: absolute;
   top: calc(100% + 18px);
-  left: -20px;
+  left: 0px;
   min-width: 220px;
   padding: 12px;
   margin: 0;
