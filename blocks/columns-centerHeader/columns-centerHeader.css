@@ -1,44 +1,18 @@
-.columns h2,
-.columns p {
+.columns-centerheader h2{
   text-align: center;
 }
 
-.columns p {
+.columns-centerheader p {
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.columns > div {
+.columns-centerheader > div {
   display: flex;
   flex-direction: column;
 }
 
-.columns img {
+.columns-centerheader img {
   width: 100%;
-}
-
-.columns > div > div {
-  order: 1;
-}
-
-.columns > div > .columns-img-col {
-  order: 0;
-}
-
-.columns > div > .columns-img-col img {
-  display: block;
-}
-
-@media (width >= 900px) {
-  .columns > div {
-    align-items: center;
-    flex-direction: unset;
-    gap: 24px;
-  }
-
-  .columns > div > div {
-    flex: 1;
-    order: unset;
-  }
 }
