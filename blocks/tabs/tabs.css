@@ -21,17 +21,23 @@
 .tabs .tabs-list button {
   flex: 0 0 max-content;
   margin: 0;
-  border-radius: 0;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
   padding: 0.5em;
-  background-color: #949494;
-  color: initial;
+  background-color: #fff;
+  background-image: linear-gradient(to right, #ffbf00, #ffbf00);
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: 0 100%;
+  color: #222;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 8%);
   font-weight: bold;
   line-height: unset;
   text-align: initial;
   text-overflow: unset;
   overflow: unset;
   white-space: unset;
-  transition: background-color 0.2s;
+  transition: background-size 0.45s ease, box-shadow 0.3s ease;
 }
 
 .tabs .tabs-list button p {
@@ -55,18 +61,16 @@
   display: none;
 }
 
-.tabs .tabs-list button {
-  transition: background-color 0.25s ease, color 0.25s ease;
-}
-
 .tabs .tabs-list button:hover,
 .tabs .tabs-list button[aria-selected='true'] {
-  background-color: #ffbf00;
-  color: #fff;
+  background-color: #fff;
+  color: #222;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 14%);
 }
 
-
-
+.tabs .tabs-list button:hover {
+  background-size: 100% 100%;
+}
 
 /* Lay the panel's content cells out as three cards */
 .tabs .tabs-panel {
