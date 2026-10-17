@@ -1,0 +1,70 @@
+.welcome-features > div {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.welcome-features-content > h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+.welcome-features-content > p {
+  color: #666;
+  line-height: 1.7;
+}
+
+.welcome-features-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.welcome-features-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem 1.5rem;
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.welcome-features-item {
+  position: relative;
+  padding-left: 3rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.welcome-features-item ul {
+  margin: 0.5rem 0 0;
+  padding: 0;
+  color: #666;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.6;
+  list-style: none;
+}
+
+.welcome-features-item picture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2rem;
+}
+
+.welcome-features-item picture img {
+  display: block;
+  width: 100%;
+}
+
+@media (max-width: 700px) {
+  .welcome-features > div {
+    grid-template-columns: 1fr;
+  }
+
+  .welcome-features-list {
+    grid-template-columns: 1fr;
+  }
+}
