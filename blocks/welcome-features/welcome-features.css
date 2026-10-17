@@ -18,7 +18,8 @@
 }
 
 .welcome-features-visual {
-  align-self: center;
+  display: flex;
+  align-items: center;
 }
 
 .welcome-features-visual img {
