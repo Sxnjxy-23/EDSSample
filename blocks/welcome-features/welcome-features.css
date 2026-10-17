@@ -7,7 +7,9 @@
 
 .welcome-features-content > h2 {
   margin: 0 0 1rem;
-  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-size: clamp(2rem, 3vw, 2.7rem);
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 .welcome-features-content > p {
@@ -49,7 +51,7 @@
 
 .welcome-features-item picture {
   position: absolute;
-  top: 0;
+  top: 1.2rem;
   left: 0;
   width: 2rem;
 }
