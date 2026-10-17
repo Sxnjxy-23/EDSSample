@@ -1,4 +1,5 @@
-.columns-centerHeader h2{
+.columns-centerHeader h2,
+.columns-centerHeader p{
   text-align: center;
 }
 
