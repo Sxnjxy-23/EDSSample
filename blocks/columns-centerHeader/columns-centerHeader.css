@@ -1,18 +1,18 @@
-.columns-centerheader h2{
+.columns-centerHeader h2{
   text-align: center;
 }
 
-.columns-centerheader p {
+.columns-centerHeader p {
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.columns-centerheader > div {
+.columns-centerHeader > div {
   display: flex;
   flex-direction: column;
 }
 
-.columns-centerheader img {
+.columns-centerHeader img {
   width: 100%;
 }
