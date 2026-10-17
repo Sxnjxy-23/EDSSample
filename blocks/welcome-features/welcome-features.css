@@ -17,6 +17,10 @@
   line-height: 1.7;
 }
 
+.welcome-features-visual {
+  align-self: center;
+}
+
 .welcome-features-visual img {
   display: block;
   width: 100%;

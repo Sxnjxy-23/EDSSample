@@ -21,7 +21,6 @@
 .tabs .tabs-list button {
   flex: 0 0 max-content;
   margin: 0;
-  border: 1px solid var(--dark-color);
   border-radius: 0;
   padding: 0.5em;
   background-color: #949494;
@@ -65,6 +64,9 @@
   background-color: #ffbf00;
   color: #fff;
 }
+
+
+
 
 /* Lay the panel's content cells out as three cards */
 .tabs .tabs-panel {
