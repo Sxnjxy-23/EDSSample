@@ -82,6 +82,8 @@
   min-width: 0;
   background: #fff;
   border: 1px solid #ddd;
+  text-align: center;
+  padding: 20px;
   box-shadow: 0 4px 18px rgb(0 0 0 / 8%);
 }
 
