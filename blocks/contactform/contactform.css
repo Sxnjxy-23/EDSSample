@@ -1,15 +1,54 @@
+.contactform .contactform-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(1.5rem, 4vw, 3rem);
+}
+
+.contactform .contactform-cards {
+  display: grid;
+  gap: 1rem;
+}
+
+.contactform .contactform-card {
+  padding: 1.5rem;
+  background: #fff;
+  box-shadow: 0 4px 24px rgb(0 0 0 / 9%);
+}
+
+.contactform .contactform-card-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.contactform .contactform-card-details > :last-child {
+  margin-bottom: 0;
+}
+
+.contactform .contactform-heading {
+  margin: 0 0 1.5rem;
+  text-align: center;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 500;
+}
+
+.contactform .contactform-layout-no-cards {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.contactform .contactform-layout-no-cards .contactform-form {
+  width: 100%;
+}
+
 .contactform .contactform-fields {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.25rem;
 }
 
 .contactform .contactform-field {
   min-width: 0;
-}
-
-.contactform .contactform-field-wide {
-  grid-column: 1 / -1;
 }
 
 .contactform .contactform-label {
@@ -74,13 +113,15 @@
   margin: 1rem 0 0;
 }
 
-@media (width <= 600px) {
-  .contactform .contactform-fields {
-    grid-template-columns: 1fr;
+@media (width >= 800px) {
+  .contactform .contactform-layout:not(.contactform-layout-no-cards) {
+    grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.6fr);
   }
+}
 
-  .contactform .contactform-field-wide {
-    grid-column: auto;
+@media (width <= 600px) {
+  .contactform .contactform-card {
+    padding: 1.25rem;
   }
 }
 

@@ -27,9 +27,47 @@ function createField({
   return field;
 }
 
+function moveContent(source, target) {
+  while (source.firstChild) target.append(source.firstChild);
+}
+
 export default function decorate(block) {
+  const layout = document.createElement('div');
+  layout.className = 'contactform-layout';
+
+  const cards = document.createElement('aside');
+  cards.className = 'contactform-cards';
+  cards.setAttribute('aria-label', 'Contact information');
+
+  [...block.children].forEach((row) => {
+    const cells = [...row.children];
+    const titleCell = cells.shift();
+    if (!titleCell) return;
+
+    const card = document.createElement('article');
+    card.className = 'contactform-card';
+
+    const title = document.createElement('h2');
+    title.className = 'contactform-card-title';
+    moveContent(titleCell, title);
+    card.append(title);
+
+    if (cells.length) {
+      const details = document.createElement('div');
+      details.className = 'contactform-card-details';
+      cells.forEach((cell) => moveContent(cell, details));
+      card.append(details);
+    }
+
+    cards.append(card);
+  });
+
   const form = document.createElement('form');
   form.className = 'contactform-form';
+
+  const heading = document.createElement('h2');
+  heading.className = 'contactform-heading';
+  heading.textContent = 'If you have any questions, please contact us';
 
   const fields = document.createElement('div');
   fields.className = 'contactform-fields';
@@ -55,12 +93,18 @@ export default function decorate(block) {
   status.setAttribute('role', 'status');
   status.hidden = true;
 
-  form.append(fields, submit, status);
+  form.append(heading, fields, submit, status);
   form.addEventListener('submit', (event) => {
     event.preventDefault();
     status.textContent = 'This form is for display only. Submissions are not configured.';
     status.hidden = false;
   });
 
-  block.replaceChildren(form);
+  if (cards.childElementCount) {
+    layout.append(cards, form);
+  } else {
+    layout.classList.add('contactform-layout-no-cards');
+    layout.append(form);
+  }
+  block.replaceChildren(layout);
 }
