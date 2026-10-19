@@ -8,6 +8,7 @@
 .contactform .contactform-cards {
   display: grid;
   gap: 1rem;
+  padding-top: 30px;
 }
 
 .contactform .contactform-card {
