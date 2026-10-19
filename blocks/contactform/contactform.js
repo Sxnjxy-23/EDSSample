@@ -43,6 +43,58 @@ function moveTitleContent(source, target) {
   }
 }
 
+async function addHoverAnimation(card, icon, media) {
+  const picture = media.matches('picture') ? media : media.closest('picture');
+  const image = media.matches('img') ? media : media.querySelector('img');
+  if (!image) return;
+
+  await image.decode();
+  if (!image.naturalWidth || !image.naturalHeight) return;
+
+  const canvas = document.createElement('canvas');
+  canvas.className = 'contactform-card-icon-static';
+  canvas.width = image.naturalWidth;
+  canvas.height = image.naturalHeight;
+  canvas.setAttribute('aria-hidden', 'true');
+  const context = canvas.getContext('2d');
+  if (!context) throw new Error('Canvas 2D context is unavailable.');
+  context.drawImage(image, 0, 0);
+  icon.prepend(canvas);
+
+  const sources = picture ? [...picture.querySelectorAll('source')] : [];
+  const originalSources = sources.map((source) => source.getAttribute('srcset'));
+  const originalSrc = image.getAttribute('src') || image.currentSrc;
+  const originalSrcset = image.getAttribute('srcset');
+
+  const pause = () => {
+    if (picture) picture.hidden = true;
+    else image.hidden = true;
+    canvas.hidden = false;
+    sources.forEach((source) => source.removeAttribute('srcset'));
+    image.removeAttribute('srcset');
+    image.removeAttribute('src');
+  };
+
+  const play = () => {
+    sources.forEach((source, index) => {
+      if (originalSources[index]) source.setAttribute('srcset', originalSources[index]);
+    });
+    if (originalSrcset) image.setAttribute('srcset', originalSrcset);
+    if (originalSrc) image.setAttribute('src', originalSrc);
+    if (picture) picture.hidden = false;
+    else image.hidden = false;
+    canvas.hidden = true;
+  };
+
+  card.addEventListener('pointerenter', play);
+  card.addEventListener('pointerleave', pause);
+  card.addEventListener('focusin', play);
+  card.addEventListener('focusout', (event) => {
+    if (!card.contains(event.relatedTarget)) pause();
+  });
+  pause();
+}
+
 export default function decorate(block) {
   const layout = document.createElement('div');
   layout.className = 'contactform-layout';
@@ -62,12 +114,12 @@ export default function decorate(block) {
     const cardHeading = document.createElement('div');
     cardHeading.className = 'contactform-card-heading';
 
-    const image = row.querySelector('picture, img');
-    if (image) {
+    const media = row.querySelector('picture, img');
+    if (media) {
       const icon = document.createElement('span');
       icon.className = 'contactform-card-icon';
-      image.remove();
-      let parent = image.parentElement;
+      media.remove();
+      let parent = media.parentElement;
       while (parent && parent !== row
         && ['P', 'DIV'].includes(parent.tagName)
         && !parent.textContent.trim()
@@ -76,8 +128,12 @@ export default function decorate(block) {
         parent = parent.parentElement;
         emptyParent.remove();
       }
-      icon.append(image);
+      icon.append(media);
       cardHeading.append(icon);
+      addHoverAnimation(card, icon, media).catch((error) => {
+        // eslint-disable-next-line no-console
+        console.error('Unable to prepare the contact card GIF preview.', error);
+      });
     }
 
     const title = document.createElement('h2');
