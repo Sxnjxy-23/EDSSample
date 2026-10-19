@@ -59,8 +59,8 @@ export default function decorate(block) {
     const card = document.createElement('article');
     card.className = 'contactform-card';
 
-    const cardHeading = document.createElement('div');
-    cardHeading.className = 'contactform-card-heading';
+    const cardContent = document.createElement('div');
+    cardContent.className = 'contactform-card-content';
 
     const media = row.querySelector('picture, img');
     if (media) {
@@ -77,24 +77,25 @@ export default function decorate(block) {
         emptyParent.remove();
       }
       icon.append(media);
-      cardHeading.append(icon);
+      card.append(icon);
+      card.classList.add('contactform-card-with-icon');
     }
 
     const title = document.createElement('h2');
     title.className = 'contactform-card-title';
     moveTitleContent(titleCell, title);
     if (title.textContent.trim()) {
-      cardHeading.append(title);
+      cardContent.append(title);
     }
-    if (cardHeading.childElementCount) card.append(cardHeading);
 
     if (cells.length) {
       const details = document.createElement('div');
       details.className = 'contactform-card-details';
       cells.forEach((cell) => moveContent(cell, details));
-      card.append(details);
+      cardContent.append(details);
     }
 
+    card.append(cardContent);
     cards.append(card);
   });
 
