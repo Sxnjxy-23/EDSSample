@@ -1,0 +1,30 @@
+.centeredcolumns > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.centeredcolumns > div > div {
+  width: 100%;
+}
+
+.centeredcolumns img {
+  width: 100%;
+}
+
+.centeredcolumns > div > .centeredcolumns-img-col img {
+  display: block;
+}
+
+@media (width >= 900px) {
+  .centeredcolumns > div {
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  .centeredcolumns > div > div {
+    flex: 1;
+  }
+}
