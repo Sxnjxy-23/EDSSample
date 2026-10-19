@@ -1,9 +1,10 @@
 .tabs .tabs-list {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 0.5ch;
   max-width: 100%;
   font-size: var(--body-font-size-xs);
-  overflow-x: auto;
 }
 
 @media (width >= 600px) {
