@@ -31,6 +31,18 @@ function moveContent(source, target) {
   while (source.firstChild) target.append(source.firstChild);
 }
 
+function moveTitleContent(source, target) {
+  while (source.firstChild) {
+    const child = source.firstChild;
+    if (child.nodeName === 'P') {
+      target.append(...child.childNodes);
+      child.remove();
+    } else {
+      target.append(child);
+    }
+  }
+}
+
 export default function decorate(block) {
   const layout = document.createElement('div');
   layout.className = 'contactform-layout';
@@ -47,10 +59,34 @@ export default function decorate(block) {
     const card = document.createElement('article');
     card.className = 'contactform-card';
 
+    const cardHeading = document.createElement('div');
+    cardHeading.className = 'contactform-card-heading';
+
+    const image = row.querySelector('picture, img');
+    if (image) {
+      const icon = document.createElement('span');
+      icon.className = 'contactform-card-icon';
+      image.remove();
+      let parent = image.parentElement;
+      while (parent && parent !== row
+        && ['P', 'DIV'].includes(parent.tagName)
+        && !parent.textContent.trim()
+        && parent.children.length === 0) {
+        const emptyParent = parent;
+        parent = parent.parentElement;
+        emptyParent.remove();
+      }
+      icon.append(image);
+      cardHeading.append(icon);
+    }
+
     const title = document.createElement('h2');
     title.className = 'contactform-card-title';
-    moveContent(titleCell, title);
-    card.append(title);
+    moveTitleContent(titleCell, title);
+    if (title.textContent.trim()) {
+      cardHeading.append(title);
+    }
+    if (cardHeading.childElementCount) card.append(cardHeading);
 
     if (cells.length) {
       const details = document.createElement('div');
