@@ -1,0 +1,91 @@
+.contactform .contactform-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.contactform .contactform-field {
+  min-width: 0;
+}
+
+.contactform .contactform-field-wide {
+  grid-column: 1 / -1;
+}
+
+.contactform .contactform-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.contactform input,
+.contactform textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1px solid #d6d6d6;
+  border-radius: 4px;
+  background: #fff;
+  color: #222;
+  font: inherit;
+}
+
+.contactform textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+.contactform input:focus-visible,
+.contactform textarea:focus-visible {
+  outline: 2px solid #145bd7;
+  outline-offset: 2px;
+}
+
+.contactform .contactform-submit {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 0;
+  border-radius: 4px;
+  background: #145bd7;
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.contactform .contactform-submit:hover {
+  background: #0b3f9f;
+}
+
+.contactform .contactform-submit:focus-visible {
+  outline: 2px solid #145bd7;
+  outline-offset: 3px;
+}
+
+.contactform .contactform-status {
+  margin: 1rem 0 0;
+}
+
+@media (width <= 600px) {
+  .contactform .contactform-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .contactform .contactform-field-wide {
+    grid-column: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contactform .contactform-submit {
+    transition: none;
+  }
+}
