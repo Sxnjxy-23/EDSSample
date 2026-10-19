@@ -36,19 +36,13 @@
 }
 
 .contactform .contactform-card-icon picture,
-.contactform .contactform-card-icon img,
-.contactform .contactform-card-icon canvas {
+.contactform .contactform-card-icon img {
   display: block;
   width: 100%;
   height: 100%;
 }
 
-.contactform .contactform-card-icon [hidden] {
-  display: none;
-}
-
-.contactform .contactform-card-icon img,
-.contactform .contactform-card-icon canvas {
+.contactform .contactform-card-icon img {
   object-fit: contain;
 }
 
