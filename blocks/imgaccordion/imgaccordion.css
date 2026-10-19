@@ -1,0 +1,105 @@
+.imgaccordion .imgaccordion-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3rem);
+}
+
+.imgaccordion .imgaccordion-image {
+  min-width: 0;
+}
+
+.imgaccordion .imgaccordion-image picture {
+  display: block;
+}
+
+.imgaccordion .imgaccordion-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.imgaccordion .imgaccordion-content {
+  min-width: 0;
+}
+
+.imgaccordion .imgaccordion-content > h1,
+.imgaccordion .imgaccordion-content > h2,
+.imgaccordion .imgaccordion-content > h3 {
+  margin-top: 0;
+}
+
+.imgaccordion .imgaccordion-items {
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.imgaccordion .imgaccordion-items > li + li {
+  margin-top: 0.75rem;
+}
+
+.imgaccordion .imgaccordion-item {
+  border: 1px solid #dadada;
+  border-radius: 3px;
+}
+
+.imgaccordion .imgaccordion-question {
+  position: relative;
+  display: block;
+  padding: 1rem 3rem 1rem 1.25rem;
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+}
+
+.imgaccordion .imgaccordion-question::-webkit-details-marker {
+  display: none;
+}
+
+.imgaccordion .imgaccordion-question::after {
+  position: absolute;
+  top: 50%;
+  right: 1.25rem;
+  width: 0.55rem;
+  height: 0.55rem;
+  border: solid currentcolor;
+  border-width: 0 2px 2px 0;
+  content: '';
+  transform: translateY(-70%) rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+.imgaccordion .imgaccordion-item[open] .imgaccordion-question {
+  color: #fff;
+  background-color: #145bd7;
+}
+
+.imgaccordion .imgaccordion-item[open] .imgaccordion-question::after {
+  transform: translateY(-30%) rotate(225deg);
+}
+
+.imgaccordion .imgaccordion-answer {
+  padding: 0 1rem;
+}
+
+.imgaccordion .imgaccordion-answer > :last-child {
+  margin-bottom: 1rem;
+}
+
+.imgaccordion .imgaccordion-item[open] .imgaccordion-answer {
+  border-top: 1px solid #dadada;
+}
+
+@media (width >= 900px) {
+  .imgaccordion .imgaccordion-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .imgaccordion .imgaccordion-question::after {
+    transition: none;
+  }
+}
