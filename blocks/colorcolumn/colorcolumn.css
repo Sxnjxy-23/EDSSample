@@ -1,0 +1,40 @@
+.colorcolumn {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  background-color: var(--colorcolumn-background-color, var(--colorcolumn-background-color-default, #f0e112));
+}
+
+.colorcolumn > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.colorcolumn img {
+  width: 100%;
+}
+
+.colorcolumn > div > div {
+  order: 1;
+}
+
+.colorcolumn > div > .colorcolumn-img-col {
+  order: 0;
+}
+
+.colorcolumn > div > .colorcolumn-img-col img {
+  display: block;
+}
+
+@media (width >= 900px) {
+  .colorcolumn > div {
+    align-items: center;
+    flex-direction: unset;
+    gap: 24px;
+  }
+
+  .colorcolumn > div > div {
+    flex: 1;
+    order: unset;
+  }
+}
