@@ -7,7 +7,7 @@ header {
 }
 
 header .nav-wrapper {
-  background-color: var(--background-color);
+  background-color: var(--palette-olive);
   width: 100%;
   z-index: 2;
   position: sticky;
@@ -27,6 +27,7 @@ header nav {
   max-width: 1248px;
   height: var(--nav-height);
   padding: 0 24px;
+  color: #000;
   font-family: var(--body-font-family);
 }
 
@@ -86,7 +87,7 @@ header nav .nav-hamburger button {
   border: 0;
   border-radius: 0;
   padding: 0;
-  background-color: var(--background-color);
+  background-color: var(--palette-olive);
   color: inherit;
   overflow: initial;
   text-overflow: initial;
@@ -266,12 +267,25 @@ header nav .nav-sections .nav-drop > button[aria-expanded='false'] + ul {
   min-width: 220px;
   padding: 12px;
   margin: 0;
-  background-color: var(--background-color);
+  background-color: var(--palette-olive);
   border: 1px solid var(--light-color);
   border-radius: 10px;
   box-shadow: 0 12px 30px rgb(48 42 36 / 12%);
   white-space: initial;
   z-index: 1001;
+  animation: nav-dropdown-enter 0.2s ease both;
+}
+
+@keyframes nav-dropdown-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul::before {
@@ -288,19 +302,27 @@ header nav .nav-sections .nav-drop > button[aria-expanded='false'] + ul {
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
   padding: 8px 10px;
-  border-radius: 6px;
+    border-bottom: 1px solid rgb(255 255 255 / 35%);
   transition: background-color 0.2s ease;
 }
 
+  header nav .nav-sections .default-content-wrapper > ul > li > ul > li:last-child {
+    border-bottom: 0;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li > ul a {
+    color: #000;
+  }
+
 header nav .nav-sections .default-content-wrapper > ul > li > ul > li:hover {
-  background-color: var(--light-color);
+    background-color: var(--palette-orange);
 }
 }
 
 /* Golden taupe navigation links */
 header nav .nav-sections a {
   display: inline-block;
-  color: var(--text-color);
+  color: #000;
   text-decoration: none;
   transition:
     color 0.25s ease,
@@ -309,7 +331,7 @@ header nav .nav-sections a {
 }
 
 header nav .nav-sections a:hover {
-  color: var(--link-hover-color);
+  color: #000;
   transform: translateY(-2px);
 }
 
@@ -325,7 +347,7 @@ header nav .nav-sections .nav-drop > button {
 }
 
 header nav .nav-sections .nav-drop > button:hover {
-  color: var(--link-hover-color);
+  color: #000;
 }
 
 /* tools */
@@ -360,5 +382,15 @@ header nav .nav-tools {
     justify-content: flex-end;
     gap: 28px;
     margin: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  header nav .nav-sections .default-content-wrapper > ul > li > button[aria-expanded='true'] + ul {
+    animation: none;
+  }
+
+  header nav .nav-sections a {
+    transition: none;
   }
 }

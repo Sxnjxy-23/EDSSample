@@ -1,13 +1,15 @@
 .colorcolumn {
   display: block;
+  box-sizing: border-box;
   width: 100%;
   max-width: 100%;
-  background-color: var(--colorcolumn-background-color, var(--colorcolumn-background-color-default, #dad8bc));
+  background-color: var(--palette-olive);
+  color: var(--text-color);
 }
 
 .colorcolumn > div {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .colorcolumn img {
@@ -15,26 +17,41 @@
 }
 
 .colorcolumn > div > div {
-  order: 1;
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 300px;
+  padding: 32px;
 }
 
-.colorcolumn > div > .colorcolumn-img-col {
-  order: 0;
+.colorcolumn > div > div > :first-child {
+  margin-top: 0;
 }
 
-.colorcolumn > div > .colorcolumn-img-col img {
+.colorcolumn > div > div > :last-child {
+  margin-bottom: 0;
+}
+
+.colorcolumn > div > .columns-img-col img {
   display: block;
 }
 
-@media (width >= 900px) {
+@media (width <= 900px) {
   .colorcolumn > div {
-    align-items: center;
-    flex-direction: unset;
-    gap: 24px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .colorcolumn > div > div {
-    flex: 1;
-    order: unset;
+    min-height: 240px;
+    padding: 24px;
+  }
+}
+
+@media (width <= 600px) {
+  .colorcolumn > div {
+    grid-template-columns: 1fr;
+  }
+
+  .colorcolumn > div > div {
+    min-height: 0;
   }
 }

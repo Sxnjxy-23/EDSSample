@@ -1,9 +1,9 @@
 
 .hero {
   padding: 64px 24px;
-  background: #101820;
-  color: white;
-  border-radius: 16px;
+  background: var(--palette-olive);
+  color: var(--text-color);
+  border-radius: 4px;
 }
 
 .hero h1 {
@@ -19,8 +19,8 @@
 .hero a {
   display: inline-block;
   padding: 12px 24px;
-  background: #c8ff00;
-  color: #101820;
+  background: var(--palette-gold);
+  color: var(--text-color);
   text-decoration: none;
   border-radius: 6px;
 }

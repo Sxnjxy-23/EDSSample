@@ -22,15 +22,15 @@
 .tabs .tabs-list button {
   flex: 0 0 max-content;
   margin: 0;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--palette-olive);
   border-radius: 6px;
   padding: 0.5em;
-  background-color: #fff;
-  background-image: linear-gradient(to right, #ffbf00, #ffbf00);
+  background-color: var(--palette-gold);
+  background-image: linear-gradient(to right, var(--palette-orange), var(--palette-orange));
   background-position: left center;
   background-repeat: no-repeat;
   background-size: 0 100%;
-  color: #222;
+  color: var(--text-color);
   box-shadow: 0 2px 6px rgb(0 0 0 / 8%);
   font-weight: bold;
   line-height: unset;
@@ -46,8 +46,9 @@
 }
 
 .tabs .tabs-list button[aria-selected='true'] {
-  border-bottom: 1px solid var(--background-color);
-  background-color: var(--background-color);
+  border-bottom: 1px solid var(--palette-orange);
+  background-color: var(--palette-gold);
+  background-size: 100% 100%;
   cursor: initial;
 }
 
@@ -64,8 +65,8 @@
 
 .tabs .tabs-list button:hover,
 .tabs .tabs-list button[aria-selected='true'] {
-  background-color: #fff;
-  color: #222;
+  background-color: var(--palette-gold);
+  color: var(--text-color);
   box-shadow: 0 4px 12px rgb(0 0 0 / 14%);
 }
 
@@ -87,11 +88,35 @@
 /* Style each content cell as a card */
 .tabs .tabs-panel > div {
   min-width: 0;
-  background: #fff;
-  border: 1px solid #ddd;
+  background: var(--palette-ivory);
+  border: 1px solid var(--palette-olive);
   text-align: center;
   padding: 20px;
   box-shadow: 0 4px 18px rgb(0 0 0 / 8%);
+}
+
+.tabs .tabs-panel[aria-hidden='false'] > div {
+  animation: tabs-card-enter 0.32s ease both;
+}
+
+.tabs .tabs-panel[aria-hidden='false'] > div:nth-child(2) {
+  animation-delay: 0.05s;
+}
+
+.tabs .tabs-panel[aria-hidden='false'] > div:nth-child(3) {
+  animation-delay: 0.1s;
+}
+
+@keyframes tabs-card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Make the image fill the top of its card */
@@ -135,5 +160,11 @@
 @media (max-width: 600px) {
   .tabs .tabs-panel {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tabs .tabs-panel[aria-hidden='false'] > div {
+    animation: none;
   }
 }

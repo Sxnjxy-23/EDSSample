@@ -15,7 +15,7 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   padding: 1.5rem;
-  background: #fff;
+  background: var(--palette-ivory);
   box-shadow: 0 4px 24px rgb(0 0 0 / 9%);
 }
 
@@ -101,10 +101,10 @@
   box-sizing: border-box;
   width: 100%;
   padding: 0.9rem 1rem;
-  border: 1px solid #d6d6d6;
+  border: 1px solid var(--palette-olive);
   border-radius: 4px;
-  background: #fff;
-  color: #222;
+  background: var(--palette-ivory);
+  color: var(--text-color);
   font: inherit;
 }
 
@@ -115,7 +115,7 @@
 
 .contactform input:focus-visible,
 .contactform textarea:focus-visible {
-  outline: 2px solid #145bd7;
+  outline: 2px solid var(--palette-gold);
   outline-offset: 2px;
 }
 
@@ -125,8 +125,8 @@
   padding: 1rem;
   border: 0;
   border-radius: 4px;
-  background: #145bd7;
-  color: #fff;
+  background: var(--palette-gold);
+  color: var(--text-color);
   font: inherit;
   font-weight: 700;
   cursor: pointer;
@@ -134,11 +134,11 @@
 }
 
 .contactform .contactform-submit:hover {
-  background: #0b3f9f;
+  background: var(--palette-orange);
 }
 
 .contactform .contactform-submit:focus-visible {
-  outline: 2px solid #145bd7;
+  outline: 2px solid var(--palette-orange);
   outline-offset: 3px;
 }
 

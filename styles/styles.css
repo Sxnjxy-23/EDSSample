@@ -11,14 +11,18 @@
  */
 
 :root {
-
   /* Golden taupe theme */
---background-color: #F7F4EE;
---light-color: #E8DDCB;
---dark-color: #8B7355;
---text-color: #302A24;
---link-color: #8B7355;
---link-hover-color: #6F573D;
+  --palette-gold: #D4AF37;
+  --palette-olive: #BDB76B;
+  --palette-ivory: #FDFBD4;
+  --palette-orange: #CE8946;
+  --site-background-color: #F7F4EE;
+  --background-color: var(--palette-ivory);
+  --light-color: var(--palette-olive);
+  --dark-color: var(--palette-orange);
+  --text-color: #302A24;
+  --link-color: #76502B;
+  --link-hover-color: #302A24;
 
   /* fonts */
   --body-font-family: roboto, roboto-fallback, sans-serif;
@@ -74,7 +78,7 @@
 body {
   display: none;
   margin: 0;
-  background-color: var(--background-color);
+  background-color: var(--site-background-color);
   color: var(--text-color);
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
@@ -315,6 +319,20 @@ main > .section:first-of-type {
   main > .section > div {
     padding: 0 32px;
   }
+}
+
+main > .section:has(.colorcolumn) {
+  margin: 0;
+  padding: 0;
+}
+
+main > .section:has(.colorcolumn) > div {
+  max-width: none;
+  padding: 0;
+}
+
+main > .section:has(.colorcolumn) + .section:empty {
+  margin: 0;
 }
 
 /* section metadata */
