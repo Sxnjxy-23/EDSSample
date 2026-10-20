@@ -2,7 +2,7 @@
   display: block;
   width: 100%;
   max-width: 100%;
-  background-color: var(--colorcolumn-background-color, var(--colorcolumn-background-color-default, #f0e112));
+  background-color: var(--colorcolumn-background-color, var(--colorcolumn-background-color-default, #dad8bc));
 }
 
 .colorcolumn > div {
