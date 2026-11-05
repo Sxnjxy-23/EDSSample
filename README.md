@@ -1,5 +1,5 @@
-# Your Project's Title...
-Your project's description...
+# AEM DEMO WEBSITE PROJECT
+A sample project to demonstrate using aem document authoring.
 
 ## Environments
 - Preview: https://main--EDSSample--Sxnjxy-23.aem.page/
