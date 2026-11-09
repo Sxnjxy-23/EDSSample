@@ -90,7 +90,7 @@
 
 .imgaccordion .imgaccordion-item[open] .imgaccordion-question {
   color: #030000;
-  background-color: var(--palette-olive);
+  background-color: var(--palette-orange);
 }
 
 .imgaccordion .imgaccordion-item[open] .imgaccordion-question::after {
