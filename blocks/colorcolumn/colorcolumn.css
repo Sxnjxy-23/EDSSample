@@ -5,6 +5,8 @@
   max-width: 100%;
   background-color: var(--palette-olive);
   color: var(--text-color);
+  border-bottom: 2px solid;
+  border-bottom-color: black;
 }
 
 .colorcolumn > div {
