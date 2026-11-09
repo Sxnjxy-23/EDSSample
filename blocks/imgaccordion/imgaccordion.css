@@ -89,7 +89,7 @@
 }
 
 .imgaccordion .imgaccordion-item[open] .imgaccordion-question {
-  color: #fff;
+  color: #030000;
   background-color: var(--palette-gold);
 }
 

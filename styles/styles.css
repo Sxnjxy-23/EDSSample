@@ -13,9 +13,9 @@
 :root {
   /* Golden taupe theme */
   --palette-gold: white;
-  --palette-olive: #d1c605;
+  --palette-olive: #d1c705ab;
   --palette-ivory: white;
-  --palette-orange: #d1c605;
+  --palette-orange: #d1c705ab;
   --site-background-color: #F7F4EE;
   --background-color: var(--palette-ivory);
   --light-color: var(--palette-olive);
